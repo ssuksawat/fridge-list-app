@@ -1,0 +1,29 @@
+<div class="page-wrapper" layout="column" flex>
+  <section layout="row" flex>
+
+    <fl-side-menu></fl-side-menu>
+
+    <div class="main-container" layout="column" flex>
+      <fl-top-toolbar></fl-top-toolbar>
+
+      <div class="content-wrapper" layout="column">
+
+        <md-content class="md-whiteframe-z1 action-bar" layout="column">
+          <md-input-container md-no-float flex>
+            <md-icon class="material-icons">search</md-icon>
+            <input ng-model="main.searchText" type="text" placeholder="I'm looking for...">
+          </md-input-container>
+        </md-content>
+
+        <ui-view></ui-view>
+
+      </div>
+
+      <md-button class="md-fab md-primary md-hue-2 create-fab" aria-label="Add new item">
+        <md-icon class="material-icons">add</md-icon>
+        <md-tooltip md-direction="top">Add item</md-tooltip>
+      </md-button>
+    </div>
+
+  </section>
+</div>

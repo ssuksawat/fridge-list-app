@@ -1,0 +1,16 @@
+<md-toolbar class="md-accent md-hue-1 md-whiteframe-z2">
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" ng-click="toolbar.toggleMenu()"
+      aria-label="User menu" hide-gt-md>
+      <md-icon class="material-icons">menu</md-icon>
+      <md-tooltip>Menu</md-tooltip>
+    </md-button>
+    <md-button ng-href="/app/inventory" class="toolbar-btn active">
+      My Inventory
+    </md-button>
+    <md-button ng-href="/app/shopping-lists" class="toolbar-btn">
+      Shopping Lists
+    </md-button>
+    <span flex></span>
+  </div>
+</md-toolbar>

@@ -1,0 +1,32 @@
+<!-- View List of Lists -->
+<md-content class="list-wrapper" layout="row" layout-align="center start" >
+
+  <md-list layout="row" flex layout-wrap>
+    <md-list-item ng-repeat="list in inventory.lists" flex-gt-sm="33" flex-sm="100">
+      <md-card>
+        <md-card-content>
+          <h2 class="md-title">{{list.name}}</h2>
+          <h5>{{list.description}}</h5>
+          <hr/>
+          <div layout="row" layout-align="center start">
+            <div layout="column">
+              <span>TOTAL</span>
+              <span class="status-total">{{list.total}}</span>
+            </div>
+            <span flex="25"></span>
+            <div layout="column">
+              <span>LOW-QTY</span>
+              <span class="status-warning">{{list.low}}</span>
+            </div>
+          </div>
+          <hr/>
+        </md-card-content>
+        <div class="md-actions" layout="row" layout-align="end center">
+          <md-button class="md-accent md-hue-3">View Items</md-button>
+        </div>
+      </md-card>
+    </md-list-item>
+  </md-list>
+
+</md-content>
+<!-- End Lists Display -->
