@@ -6,18 +6,9 @@
     <div class="main-container" layout="column" flex>
       <fl-top-toolbar></fl-top-toolbar>
 
-      <div class="content-wrapper" layout="column">
-
-        <md-content class="md-whiteframe-z1 action-bar" layout="column">
-          <md-input-container md-no-float flex>
-            <md-icon class="material-icons">search</md-icon>
-            <input ng-model="main.searchText" type="text" placeholder="I'm looking for...">
-          </md-input-container>
-        </md-content>
-
+      <md-content layout-margin>
         <ui-view></ui-view>
-
-      </div>
+      </md-content>
 
       <md-button class="md-fab md-primary md-hue-2 create-fab" aria-label="Add new item">
         <md-icon class="material-icons">add</md-icon>

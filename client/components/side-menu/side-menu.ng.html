@@ -8,29 +8,41 @@
       <span flex></span>
     </div>
   </md-toolbar>
-  <md-list>
-    <md-list-item>
-      <md-content class="side-menu__user" layout="column" flex>
+
+  <md-content>
+    <md-list>
+      <md-list-item class="side-menu__user" layout="row" layout-align="start end">
         <md-icon class="material-icons side-menu__avatar">account_circle</md-icon>
-        <h5>Hello, Sompop!</h5>
-      </md-content>
+        <h4>User Name</h4>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="User menu" ng-click="menu.showOptions = !menu.showOptions">
+          <i class="material-icons">arrow_drop_down</i>
+        </md-button>
+      </md-list-item>
+      <div ng-show="menu.showOptions">
+        <md-list-item>
+          <md-button href="/settings" flex>Settings</md-button>
+        </md-list-item>
+        <md-list-item href="/logout">
+          <md-button class="md-warn" flex>Logout</md-button>
+        </md-list-item>
+      </div>
       <md-divider></md-divider>
-    </md-list-item>
-    <md-list-item>
-      <md-button ng-href="/inventories" flex>My Inventories</md-button>
-    </md-list-item>
-    <md-list-item>
-      <md-button ng-href="/shopping-list" flex>My Shopping Lists</md-button>
-    </md-list-item>
-    <md-divider></md-divider>
-    <md-list-item>
-      <md-button ng-href="/settings" flex>Settings</md-button>
-    </md-list-item>
-    <md-list-item>
-      <md-button ng-href="/help" flex>Help</md-button>
-    </md-list-item>
-    <md-list-item>
-      <md-button class="md-warn" ng-href="/logout" flex>Log out</md-button>
-    </md-list-item>
-  </md-list>
+      <md-list-item>
+        <md-button ng-href="/inventories" flex>My Inventories</md-button>
+      </md-list-item>
+      <md-divider></md-divider>
+      <!-- MOCK LISTS -->
+      <md-list-item>
+        <md-button flex>Kitchen</md-button>
+      </md-list-item>
+      <md-list-item>
+        <md-button flex>Cleaning</md-button>
+      </md-list-item>
+      <md-list-item>
+        <md-button flex>Office</md-button>
+      </md-list-item>
+    </md-list>
+  </md-content>
+
 </md-sidenav>
