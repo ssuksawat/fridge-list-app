@@ -19,7 +19,7 @@ function AuthCtrl($meteor, $state) {
       $state.go('main.inventories');
     }
     function loginError(err) {
-      vm.error = 'Your email & password combination does not match. Please try again.';
+      vm.error = 'Your email and password combination is incorrect. Please try again.';
     }
   };
 
