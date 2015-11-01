@@ -7,7 +7,7 @@ function CreateActionSheetCtrl($mdBottomSheet) {
   vm.items = [
     {name: 'New List', icon: 'assignment', action: openCreateListModal},
     {name: 'New Item', icon: 'add_box', action: openCreateItemModal},
-    {name: 'Scan Item', icon: 'photo_camera', action: openScanItemModal}
+    {name: 'Scan Item', icon: 'photo_camera', action: openScanItemModal, disabled: true}
   ];
 
   function select(index) {
