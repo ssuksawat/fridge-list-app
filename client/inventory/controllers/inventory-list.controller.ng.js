@@ -7,20 +7,17 @@ function InventoryListCtrl() {
     {
       name: 'Kitchen',
       description: 'kitchen supplies',
-      total: 25,
-      low: 3
+      total: 25
     },
     {
       name: 'Cleaning',
       description: 'cleaning supplies',
-      total: 10,
-      low: 0
+      total: 10
     },
     {
       name: 'Office',
-      description: 'office supplies',
-      total: 13,
-      low: 1
+      // description: 'office supplies',
+      total: 13
     }
   ];
 }

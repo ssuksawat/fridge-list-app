@@ -1,5 +1,5 @@
-<div class="auth__wrapper" layout="row" layout-align="center center">
-  <form name="loginForm" class="md-whiteframe-z1 auth__form" layout="column" ng-submit="auth.login()">
+<div class="auth" layout="row" layout-align="center center">
+  <form class="md-whiteframe-z1 auth__form" layout="column" ng-submit="auth.login()">
     <section class="auth__header" layout="row">
       <span flex></span>
       <h2 class="md-primary">Member Login</h2>
@@ -7,9 +7,9 @@
     </section>
     <section class="auth__body">
       <md-content layout="column" layout-padding>
-        <div ng-show="auth.error" class="text-warning">
+        <h5 ng-show="auth.error" class="text-warning">
           {{ auth.error }}
-        </div>
+        </h5>
         <md-input-container>
           <label>Email</label>
           <input ng-model="auth.credentials.email" type="email" ng-required="true">
@@ -22,7 +22,7 @@
     </section>
     <section class="auth__footer" layout="row">
       <md-button flex>Forgot password?</md-button>
-      <md-button class="md-primary md-raised" ng-disabled="loginForm.$invalid" ng-click="auth.login()" flex>Continue</md-button>
+      <md-button class="md-primary md-raised" ng-click="auth.login()" aria-label="log in" flex>Continue</md-button>
     </section>
   </form>
 </div>

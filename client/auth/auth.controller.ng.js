@@ -18,7 +18,7 @@ function AuthCtrl($meteor, $state) {
     function loginSuccess() {
       $state.go('main.inventories');
     }
-    function loginError(err) {
+    function loginError() {
       vm.error = 'Your email and password combination is incorrect. Please try again.';
     }
   };
@@ -30,7 +30,7 @@ function AuthCtrl($meteor, $state) {
       $state.go('main.inventories');
     }
     function registerError(err) {
-      vm.error = 'Registration error - ' + err;
+      vm.error = 'Registration error - ' + err.reason;
     }
   };
 }

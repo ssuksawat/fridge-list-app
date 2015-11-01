@@ -1,14 +1,36 @@
 @avatar-size: 40px;
+@color-submenu: #f4f4f6;
+@z-index-top: 2;
+@z-index-bottom: 1;
 
-.side-menu {
-  height: 100vh;
+.sideMenu { height: 100vh; }
+
+.sideMenu__userMenu-toggle {
+  position: relative;
+  z-index: @z-index-top;
+  background-color: white;
 }
-
-.side-menu__user {
-  padding: 10px;
-}
-
-.side-menu__avatar {
+.sideMenu__userMenu-toggle .expand-icon { transition: transform .4s ease; }
+.sideMenu__userMenu-toggle.isToggled .expand-icon{ transform: rotate(-180deg); }
+.sideMenu__avatar {
   margin: 5px;
   font-size: @avatar-size;
+}
+.sideMenu__userMenu-options {
+  z-index: @z-index-bottom;
+  background-color: @color-submenu;
+
+  &.ng-hide {
+    margin-top: -100px;
+    opacity: 0;
+  }
+  &.ng-hide-add-active,
+  &.ng-hide-remove-active {
+    transition: all .4s ease;
+  }
+}
+.sideMenu__inventory-list {
+  i {
+    margin-right: 15px;
+  }
 }

@@ -1,7 +1,7 @@
-<md-sidenav class="md-sidenav-left md-accent md-whiteframe-z2 side-menu"
-  md-component-id="userMenu" md-is-locked-open="$mdMedia('gt-md')"
+<md-sidenav class="md-sidenav-left md-accent md-whiteframe-z2 sideMenu"
+  md-component-id="sideMenu" md-is-locked-open="$mdMedia('gt-md')"
   layout="column" tabindex="-1">
-  <md-toolbar>
+  <md-toolbar class="sideMenu__logo">
     <div class="md-toolbar-tools">
       <span flex></span>
       <h4>Fridge List</h4>
@@ -10,39 +10,56 @@
   </md-toolbar>
 
   <md-content>
+
+    <div class="sideMenu__userMenu">
+      <div class="sideMenu__userMenu-toggle" ng-class="{isToggled: menu.showOptions}" layout="row">
+        <md-button ng-click="menu.showOptions = !menu.showOptions" flex>
+          <div layout="row" layout-align="center center" flex>
+            <i class="material-icons sideMenu__avatar">account_circle</i>
+            <h4>{{ ::menu.displayName }}</h4>
+            <span flex></span>
+            <i class="material-icons expand-icon">expand_more</i>
+          </div>
+        </md-button>
+      </div>
+      <div class="sideMenu__userMenu-options" ng-show="menu.showOptions" layout="column">
+        <md-button href="/settings" flex>Settings</md-button>
+        <md-button href="/logout" class="md-warn" flex>Logout</md-button>
+      </div>
+    </div>
+
     <md-list>
-      <md-list-item class="side-menu__user" layout="row" layout-align="start end">
-        <md-icon class="material-icons side-menu__avatar">account_circle</md-icon>
-        <h4>User Name</h4>
-        <span flex></span>
-        <md-button class="md-icon-button" aria-label="User menu" ng-click="menu.showOptions = !menu.showOptions">
-          <i class="material-icons">arrow_drop_down</i>
+      <md-divider></md-divider>
+      <md-list-item>
+        <md-button class="md-primary md-hue-1" ng-href="/inventories" flex>My Inventories</md-button>
+      </md-list-item>
+      <!-- MOCK INVENTORY LISTS -->
+      <md-list-item class="sideMenu__inventory-list">
+        <md-button flex>
+          <div layout layout-align="start center">
+            <i class="material-icons">list</i>
+            <span>Kitchen</span>
+          </div>
         </md-button>
       </md-list-item>
-      <div ng-show="menu.showOptions">
-        <md-list-item>
-          <md-button href="/settings" flex>Settings</md-button>
-        </md-list-item>
-        <md-list-item>
-          <md-button href="/logout" class="md-warn" flex>Logout</md-button>
-        </md-list-item>
-      </div>
-      <md-divider></md-divider>
-      <md-list-item>
-        <md-button ng-href="/inventories" flex>My Inventories</md-button>
+      <md-list-item class="sideMenu__inventory-list">
+        <md-button flex>
+          <div layout layout-align="start center">
+            <i class="material-icons">list</i>
+            <span>Cleaning</span>
+          </div>
+        </md-button>
       </md-list-item>
-      <md-divider></md-divider>
-      <!-- MOCK LISTS -->
-      <md-list-item>
-        <md-button flex>Kitchen</md-button>
-      </md-list-item>
-      <md-list-item>
-        <md-button flex>Cleaning</md-button>
-      </md-list-item>
-      <md-list-item>
-        <md-button flex>Office</md-button>
+      <md-list-item class="sideMenu__inventory-list">
+        <md-button flex>
+          <div layout layout-align="start center">
+            <i class="material-icons">list</i>
+            <span>Office supplies</span>
+          </div>
+        </md-button>
       </md-list-item>
     </md-list>
+
   </md-content>
 
 </md-sidenav>
