@@ -16,7 +16,7 @@
         <md-button ng-click="menu.showOptions = !menu.showOptions" flex>
           <div layout="row" layout-align="center center" flex>
             <i class="material-icons sideMenu__avatar">account_circle</i>
-            <h4>{{ ::menu.displayName }}</h4>
+            <h4>{{ ::$root.currentUser | displayName }}</h4>
             <span flex></span>
             <i class="material-icons expand-icon">expand_more</i>
           </div>

@@ -11,15 +11,5 @@ function SideMenu($rootScope) {
 
   function SideMenuCtrl() {
     var vm = this;
-
-    vm.displayName = getDisplayName($rootScope.currentUser);
-
-    function getDisplayName(user) {
-      if (user.profile && user.profile.name) {
-        return user.profile.name;
-      } else {
-        return user.emails[0].address;
-      }
-    }
   }
 }
