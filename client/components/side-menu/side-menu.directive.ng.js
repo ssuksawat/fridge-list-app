@@ -9,7 +9,12 @@ function SideMenu($rootScope) {
     controllerAs: 'menu'
   };
 
-  function SideMenuCtrl() {
+  function SideMenuCtrl($meteor) {
     var vm = this;
+
+    vm.lists = $meteor.collection(function () {
+      return Inventories.find({});
+    });
+    $meteor.subscribe('inventories');
   }
 }
