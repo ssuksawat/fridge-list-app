@@ -1,18 +1,18 @@
-<div class="page-wrapper" layout="column" flex>
+<div class="main" layout="column" flex>
   <section layout="row" flex>
 
     <fl-side-menu></fl-side-menu>
 
-    <div class="main-container" layout="column" flex>
+    <div class="main__container" layout="column" flex>
       <fl-top-toolbar></fl-top-toolbar>
 
       <md-content layout-margin>
         <ui-view></ui-view>
       </md-content>
 
-      <md-button class="md-fab md-primary md-hue-2 create-fab" aria-label="Add new item">
+      <md-button class="md-fab md-primary md-hue-2 create-fab" ng-click="main.openCreateSheet()" aria-label="Add button">
         <md-icon class="material-icons">add</md-icon>
-        <md-tooltip md-direction="top">Add item</md-tooltip>
+        <md-tooltip md-direction="top">Add</md-tooltip>
       </md-button>
     </div>
 
