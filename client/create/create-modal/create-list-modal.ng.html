@@ -1,0 +1,36 @@
+<md-dialog class="md-accent createModal" aria-label="Create New List" flex="65">
+  <md-toolbar class="createModal__header">
+    <div class="md-toolbar-tools">
+      <h2>Create New List</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="create.cancel()">
+        <md-icon aria-label="Close modal">close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <form name="createList" layout="column">
+    <md-dialog-content class="createModal__body">
+      <section>
+        <md-content layout="column" layout-padding>
+          <md-input-container>
+            <label>Title <small>(required)</small></label>
+            <input ng-model="create.newList.title" type="text" ng-required="true">
+          </md-input-container>
+          <md-input-container>
+            <label>Description</label>
+            <input ng-model="create.newList.description" type="text">
+          </md-input-container>
+        </md-content>
+      </section>
+
+      <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button class="md-raised" ng-disabled="createList.$invalid" ng-click="create.create(createList.$valid)">
+          Create
+        </md-button>
+      </div>
+    </md-dialog-content>
+  </form>
+
+</md-dialog>

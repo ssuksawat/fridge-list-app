@@ -1,10 +1,10 @@
 angular.module('fridgeListApp').controller('InventoryListCtrl', InventoryListCtrl);
 
-function InventoryListCtrl($meteor) {
+function InventoryListCtrl($scope) {
   var vm = this;
 
-  vm.lists = $meteor.collection(function () {
+  vm.lists = $scope.$meteorCollection(() => {
     return Inventories.find({});
-  });
-  $meteor.subscribe('inventories');
+  }, false);
+  $scope.$meteorSubscribe('inventories');
 }

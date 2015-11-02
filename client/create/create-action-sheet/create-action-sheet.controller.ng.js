@@ -1,6 +1,6 @@
 angular.module('fridgeListApp').controller('CreateActionSheetCtrl', CreateActionSheetCtrl);
 
-function CreateActionSheetCtrl($mdBottomSheet) {
+function CreateActionSheetCtrl($mdBottomSheet, $mdDialog) {
   var vm = this;
 
   vm.select = select;
@@ -16,7 +16,11 @@ function CreateActionSheetCtrl($mdBottomSheet) {
   }
 
   function openCreateListModal() {
-
+    $mdDialog.show({
+      templateUrl: 'client/create/create-modal/create-list-modal.ng.html',
+      controller: 'CreateListCtrl',
+      controllerAs: 'create'
+    });
   }
 
   function openCreateItemModal() {
