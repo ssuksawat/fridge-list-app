@@ -3,5 +3,5 @@ Meteor.publish('inventories', function () {
     $or: [
       {owner: this.userId},
       {subscribers: this.userId}
-  ]});
+  ]}, {sort: {title: 1}});
 });

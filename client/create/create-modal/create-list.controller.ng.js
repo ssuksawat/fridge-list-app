@@ -26,10 +26,6 @@ function CreateListCtrl($rootScope, $scope, $mdDialog) {
 
   function init() {
     vm.newList = { owner: $rootScope.currentUser._id };
-
-    lists = $scope.$meteorCollection(() => {
-      return Inventories.find({});
-    }, false);
-    $scope.$meteorSubscribe('inventories');
+    lists = $scope.$meteorCollection(Inventories, false);
   }
 }

@@ -10,11 +10,29 @@
           <span>{{list.items.length || 0}} items</span>
         </md-card-content>
         <div class="md-actions" layout="row" layout-align="start center">
-          <md-button class="md-icon-button md-accent md-hue-3">
-            <md-icon class="material-icons">mode_edit</md-icon>
-          </md-button>
-          <span flex></span>
           <md-button class="md-accent md-hue-3" ng-href="/inventories/{{list._id}}">View Items</md-button>
+          <span flex></span>
+
+          <md-menu md-position-mode="target-right target">
+            <md-button class="md-icon-button md-accent md-hue-3" ng-click="$mdOpenMenu($event)">
+              <md-icon class="material-icons">more_vert</md-icon>
+            </md-button>
+            <md-menu-content>
+              <md-menu-item>
+                <md-button>
+                  <md-icon>mode_edit</md-icon>
+                  Edit details
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click="inventory.remove($index)">
+                  <md-icon>delete</md-icon>
+                  Remove
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+
         </div>
       </md-card>
     </md-list-item>
