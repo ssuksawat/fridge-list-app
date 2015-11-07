@@ -1,0 +1,14 @@
+.create-fab {
+  @margin-bottom-default: 6px;
+
+  position: fixed;
+  bottom: 36px;
+  right:  15px;
+
+  /* Classes for animation */
+  &.js-entering             { transition: all .25s ease; }
+  &.js-scale-in             { transform: scale(0, 0); }
+  &.js-scale-in.js-entering { transform: scale(1, 1); }
+  &.js-slide-in             { margin-bottom: -100px }
+  &.js-slide-in.js-entering { margin-bottom: @margin-bottom-default; }
+}
