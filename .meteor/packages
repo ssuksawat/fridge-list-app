@@ -21,6 +21,6 @@ angularui:angular-ui-router
 less
 accounts-password
 tmeasday:publish-counts
-angular:angular-material
 planettraining:material-design-icons-font
 check
+angular:angular-material@1.0.0-rc2
