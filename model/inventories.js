@@ -5,7 +5,7 @@ Inventories.allow({
     return userId && inventory.owner === userId;
   },
   update: function (userId, inventory) {
-    return userId && (inventory.owner === userId || _.contains(inventory.subscribers, userId));
+    return userId && (inventory.owner === userId || _.findWhere(inventory.subscribers, {_id: userId}));
   },
   remove: function (userId, inventory) {
     return userId && inventory.owner === userId;
