@@ -12,7 +12,7 @@ function InventoryListCtrl($scope, $mdDialog) {
 
   function edit($index) {
     $mdDialog.show({
-      templateUrl: 'client/edit/edit-modal/edit-list-modal.ng.html',
+      templateUrl: 'client/edit/edit-modal/edit-list-modal.html',
       controller: 'EditListCtrl',
       controllerAs: 'edit',
       locals: { selectedList: vm.lists[$index] }

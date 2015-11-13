@@ -3,7 +3,7 @@ angular.module('fridgeListApp')
     $stateProvider
       .state('main', {
         abstact: true,
-        templateUrl: 'client/main/main.ng.html',
+        templateUrl: 'client/main/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main',
         resolve: {

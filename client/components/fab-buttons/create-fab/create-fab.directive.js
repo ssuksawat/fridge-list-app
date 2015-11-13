@@ -5,7 +5,7 @@ angular.module('fridgeListApp').directive('createFab', CreateFAB);
 function CreateFAB($timeout) {
   return {
     restrict: 'E',
-    templateUrl: 'client/components/fab-buttons/create-fab/create-fab.ng.html',
+    templateUrl: 'client/components/fab-buttons/create-fab/create-fab.html',
     link: CreateFabLink
   };
 

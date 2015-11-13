@@ -4,7 +4,7 @@ function SideMenu($rootScope) {
   return {
     restrict: 'E',
     scope: {},
-    templateUrl: 'client/components/side-menu/side-menu.ng.html',
+    templateUrl: 'client/components/side-menu/side-menu.html',
     controller: SideMenuCtrl,
     controllerAs: 'menu'
   };

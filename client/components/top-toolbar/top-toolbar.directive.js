@@ -4,7 +4,7 @@ function TopToolbar() {
   return {
     restrict: 'E',
     scope: {},
-    templateUrl: 'client/components/top-toolbar/top-toolbar.ng.html',
+    templateUrl: 'client/components/top-toolbar/top-toolbar.html',
     controller: TopToolbarCtrl,
     controllerAs: 'toolbar'
   };

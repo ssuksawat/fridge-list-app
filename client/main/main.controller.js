@@ -7,7 +7,7 @@ function MainCtrl($scope, $mdBottomSheet) {
 
   function openCreateSheet() {
     $mdBottomSheet.show({
-      templateUrl: 'client/create/create-action-sheet/create-action-sheet.ng.html',
+      templateUrl: 'client/create/create-action-sheet/create-action-sheet.html',
       controller: 'CreateActionSheetCtrl',
       controllerAs: 'action'
     });

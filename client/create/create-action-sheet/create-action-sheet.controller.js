@@ -17,7 +17,7 @@ function CreateActionSheetCtrl($mdBottomSheet, $mdDialog) {
 
   function openCreateListModal() {
     $mdDialog.show({
-      templateUrl: 'client/create/create-modal/create-list-modal.ng.html',
+      templateUrl: 'client/create/create-modal/create-list-modal.html',
       controller: 'CreateListCtrl',
       controllerAs: 'create'
     });

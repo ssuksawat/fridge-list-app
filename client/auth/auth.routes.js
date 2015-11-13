@@ -4,12 +4,12 @@ function AuthRoute($stateProvider) {
   $stateProvider
     .state('login', {
       url: '/login',
-      templateUrl: 'client/auth/views/login.ng.html',
+      templateUrl: 'client/auth/views/login.html',
       controller: 'AuthCtrl',
       controllerAs: 'auth'
     }).state('signup', {
       url: '/signup',
-      templateUrl: 'client/auth/views/signup.ng.html',
+      templateUrl: 'client/auth/views/signup.html',
       controller: 'AuthCtrl',
       controllerAs: 'auth'
     }).state('logout', {
