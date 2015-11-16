@@ -8,12 +8,12 @@ function InventoriesRoutes($stateProvider) {
       url: '/inventories',
       templateUrl: 'client/inventory/views/inventory-list.html',
       controller: 'InventoryListCtrl',
-      controllerAs: 'inventory'
+      controllerAs: 'inventoryList'
     })
-    .state('main.inventoryDetails', {
-      url: '/inventories/:inventoryId',
-      templateUrl: 'client/inventory/views/inventory-details.html',
-      controller: 'InventoryDetailsCtrl',
-      controllerAs: 'inventory'
+    .state('main.inventoryItems', {
+      url: '/inventories/:listId',
+      templateUrl: 'client/inventory/views/inventory-items.html',
+      controller: 'InventoryItemsCtrl',
+      controllerAs: 'inventoryItems'
     });
 }
