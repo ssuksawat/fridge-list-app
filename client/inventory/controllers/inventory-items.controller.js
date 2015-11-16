@@ -14,8 +14,9 @@ function InventoryItemsCtrl($scope, $stateParams) {
 
   }
 
-  function remove() {
-    
+  function remove($index) {
+    var targetId = vm.items[$index]._id;
+    vm.items.remove(targetId);
   }
 
   /* ----- PRIVATE ----- */
