@@ -27,7 +27,6 @@ function InventoryListCtrl($scope, $mdDialog) {
   /* ---- PRIVATE ----- */
 
   function init() {
-    vm.lists = $scope.$meteorCollection(Inventories, false);
-    $scope.$meteorSubscribe('inventories');
+    vm.lists = $scope.$meteorCollection(Inventories, false).subscribe('inventories');
   }
 }

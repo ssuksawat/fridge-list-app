@@ -11,6 +11,6 @@ function SideMenu($rootScope) {
 
   function SideMenuCtrl($scope) {
     var vm = this;
-    vm.lists = $scope.$meteorCollection(Inventories, false);
+    vm.lists = $scope.$meteorCollection(Inventories, false).subscribe('inventories');
   }
 }

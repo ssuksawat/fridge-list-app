@@ -34,7 +34,7 @@
         <md-button class="md-primary md-hue-1" ui-sref="main.inventories" flex>My Inventories</md-button>
       </md-list-item>
       <md-list-item class="sideMenu__inventory-list" ng-repeat="list in menu.lists">
-        <md-button ng-href="main.inventoryItems({listId: list._id})" flex>
+        <md-button ui-sref="main.inventoryItems({listId: list._id})" flex>
           <div layout layout-align="start center">
             <i class="material-icons">list</i>
             <span>{{list.title}}</span>
