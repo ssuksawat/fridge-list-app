@@ -5,16 +5,24 @@
     <md-list-item ng-repeat="list in inventoryList.lists" flex-gt-sm="33" flex-sm="100">
       <md-card>
         <md-card-content>
-          <h2 class="md-title">{{list.title}}</h2>
-          <h5>{{list.description}}</h5>
+          <div layout layout-align="start start">
+            <span class="md-title" flex>{{list.title}}</span>
+            <div ng-show="list.subscribers.length > 0">
+              <md-icon class="md-18">person</md-icon>
+              <span>{{list.subscribers.length}}</span>
+            </div>
+          </div>
+          <p>{{list.description}}</p>
           <span>{{list.items.length || 0}} items</span>
         </md-card-content>
 
         <div class="md-actions" layout="row" layout-align="start center">
-          <md-button class="md-accent md-hue-3" ui-sref="main.inventoryItems({listId: list._id})">View Items</md-button>
+          <md-button class="md-icon-button" ng-click="inventoryList.edit($index)"><md-icon>mode_edit</md-icon></md-button>
+          <md-button class="md-icon-button" ng-click="inventoryList.remove($index)"><md-icon>delete</md-icon></md-button>
           <span flex></span>
+          <md-button class="md-accent md-hue-3" ui-sref="main.inventoryItems({listId: list._id})">View</md-button>
 
-          <md-menu md-position-mode="target-right target">
+          <!-- <md-menu md-position-mode="target-right target">
             <md-button class="md-icon-button md-accent md-hue-3" ng-click="$mdOpenMenu($event)">
               <md-icon class="material-icons">more_vert</md-icon>
               <md-tooltip>More options</md-tooltip>
@@ -33,7 +41,7 @@
                 </md-button>
               </md-menu-item>
             </md-menu-content>
-          </md-menu>
+          </md-menu> -->
         </div>
 
       </md-card>

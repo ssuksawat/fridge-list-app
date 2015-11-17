@@ -2,7 +2,7 @@
 <div class="inventory">
 
   <md-list layout layout-align="start start" layout-wrap flex>
-    <md-list-item ng-repeat="item in inventoryItems.items" flex-gt-sm="25" flex-sm="100">
+    <md-list-item ng-repeat="item in inventoryItems.items" flex-sm="100">
       <md-card>
         <md-card-content>
           <h2 class="md-title">{{item.title}}</h2>
@@ -10,27 +10,10 @@
           <span>Qty: {{item.qty || 0}}</span>
         </md-card-content>
 
-        <div class="md-actions" layout="row" layout-align="end center">
-          <md-menu md-position-mode="target-right target">
-            <md-button class="md-icon-button md-accent md-hue-3" ng-click="$mdOpenMenu($event)">
-              <md-icon class="material-icons">more_vert</md-icon>
-              <md-tooltip>More options</md-tooltip>
-            </md-button>
-            <md-menu-content>
-              <md-menu-item>
-                <md-button ng-click="inventoryItems.edit($index)">
-                  <md-icon>mode_edit</md-icon>
-                  Edit details
-                </md-button>
-              </md-menu-item>
-              <md-menu-item>
-                <md-button ng-click="inventoryItems.remove($index)">
-                  <md-icon>delete</md-icon>
-                  Remove
-                </md-button>
-              </md-menu-item>
-            </md-menu-content>
-          </md-menu>
+        <div class="md-actions" layout="row" layout-align="center center">
+          <md-button class="md-icon-button" ng-click="inventoryItems.edit($index)"><md-icon>mode_edit</md-icon></md-button>
+          <md-button class="md-icon-button" ng-click="inventoryItems.remove($index)"><md-icon>delete</md-icon></md-button>
+          <md-button class="md-icon-button"><md-icon>add_shopping_cart</md-icon></md-button>
         </div>
 
       </md-card>
