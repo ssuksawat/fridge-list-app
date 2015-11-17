@@ -30,10 +30,15 @@
 
     <md-list>
       <md-divider></md-divider>
-      <md-list-item>
-        <md-button class="md-primary md-hue-1" ui-sref="main.inventories" flex>My Inventories</md-button>
+      <md-list-item class="sideMenu__inventory-list" ng-class="{ 'is-active': menu.isActive('myinventories') }">
+        <md-button class="md-primary md-hue-1" ui-sref="main.inventories" flex>
+          <div layout layout-align="start center">
+            <i class="material-icons">home</i>
+            <span>My Inventories</span>
+          </div>
+        </md-button>
       </md-list-item>
-      <md-list-item class="sideMenu__inventory-list" ng-repeat="list in menu.lists">
+      <md-list-item class="sideMenu__inventory-list" ng-class="{ 'is-active': menu.isActive(list._id) }" ng-repeat="list in menu.lists">
         <md-button ui-sref="main.inventoryItems({listId: list._id})" flex>
           <div layout layout-align="start center">
             <i class="material-icons">list</i>

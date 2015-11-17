@@ -9,8 +9,28 @@ function SideMenu($rootScope) {
     controllerAs: 'menu'
   };
 
-  function SideMenuCtrl($scope) {
+  function SideMenuCtrl($scope, $stateParams) {
     var vm = this;
-    vm.lists = $scope.$meteorCollection(Inventories, false).subscribe('inventories');
+
+    init();
+
+    vm.isActive = isActive;
+
+    /* ----- PUBLIC ----- */
+
+    function isActive(id) {
+      if ($stateParams.listId) {
+        return $stateParams.listId === id;
+      } else {
+        return id === 'myinventories';
+      }
+    }
+
+    /* ----- PRIVATE ----- */
+
+    function init() {
+      vm.lists = $scope.$meteorCollection(Inventories, false).subscribe('inventories');
+    }
+
   }
 }
