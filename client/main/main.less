@@ -8,5 +8,9 @@
 
 .main__container {
   height: 100vh;
-  > md-content { background-color: @main-background; }
+
+  > md-content {
+    position: static; // TODO: remove after md-content whiteframe bug is fixed
+    background-color: @main-background;
+  }
 }
