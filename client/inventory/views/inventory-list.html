@@ -16,12 +16,12 @@
           <span>{{list.items.length || 0}} items</span>
         </md-card-content>
 
-        <div class="md-actions" layout="row" layout-align="start center">
+        <md-card-actions class="md-actions" layout="row" layout-align="start center">
           <md-button class="md-icon-button" ng-click="inventoryList.edit($index)"><md-icon>mode_edit</md-icon></md-button>
           <md-button class="md-icon-button" ng-click="inventoryList.remove($index)"><md-icon>delete</md-icon></md-button>
           <span flex></span>
           <md-button class="md-accent md-hue-3" ui-sref="main.inventoryItems({listId: list._id})">View</md-button>
-        </div>
+        </md-card-actions>
 
       </md-card>
     </md-list-item>

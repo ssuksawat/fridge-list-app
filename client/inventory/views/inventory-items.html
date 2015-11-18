@@ -10,11 +10,11 @@
           <span>Qty: {{item.qty || 0}}</span>
         </md-card-content>
 
-        <div class="md-actions" layout="row" layout-align="center center">
+        <md-card-actions class="md-actions" layout="row" layout-align="center center">
           <md-button class="md-icon-button" ng-click="inventoryItems.edit($index)"><md-icon>mode_edit</md-icon></md-button>
           <md-button class="md-icon-button" ng-click="inventoryItems.remove($index)"><md-icon>delete</md-icon></md-button>
           <md-button class="md-icon-button"><md-icon>add_shopping_cart</md-icon></md-button>
-        </div>
+        </md-card-actions>
 
       </md-card>
     </md-list-item>

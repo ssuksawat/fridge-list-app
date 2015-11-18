@@ -6,9 +6,8 @@
     <div class="main__container" layout="column" flex>
       <fl-top-toolbar></fl-top-toolbar>
 
-      <md-content layout-margin>
-        <ui-view></ui-view>
-      </md-content>
+      <!-- TODO: Change to layout-padding instead once md-whiteframe issue is fixed -->
+      <md-content ui-view flex layout-margin></md-content>
 
       <create-fab></create-fab>
     </div>
