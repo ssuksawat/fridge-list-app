@@ -15,7 +15,7 @@ function AuthRoute($stateProvider) {
     }).state('logout', {
       url: '/logout',
       resolve: {
-        "logout": function($meteor, $state) {
+        'logout': function($meteor, $state) {
           return $meteor.logout().then(function(){
             $state.go('login');
           }, function(err){

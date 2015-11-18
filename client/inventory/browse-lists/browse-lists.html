@@ -2,7 +2,7 @@
 <div class="inventory">
 
   <md-list layout layout-align="start start" layout-wrap flex>
-    <md-list-item ng-repeat="list in inventoryList.lists" flex-gt-sm="33" flex-sm="100">
+    <md-list-item ng-repeat="list in browse.lists" flex-gt-sm="33" flex-sm="100">
       <md-card>
         <md-card-content>
           <div layout layout-align="start center">
@@ -17,8 +17,8 @@
         </md-card-content>
 
         <md-card-actions class="md-actions" layout="row" layout-align="start center">
-          <md-button class="md-icon-button" ng-click="inventoryList.edit($index)"><md-icon>mode_edit</md-icon></md-button>
-          <md-button class="md-icon-button" ng-click="inventoryList.remove($index)"><md-icon>delete</md-icon></md-button>
+          <md-button class="md-icon-button" ng-click="browse.edit($index)"><md-icon>mode_edit</md-icon></md-button>
+          <md-button class="md-icon-button" ng-click="browse.remove($index)"><md-icon>delete</md-icon></md-button>
           <span flex></span>
           <md-button class="md-accent md-hue-3" ui-sref="main.inventoryItems({listId: list._id})">View</md-button>
         </md-card-actions>

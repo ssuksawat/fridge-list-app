@@ -1,6 +1,6 @@
-angular.module('fridgeListApp').controller('InventoryListCtrl', InventoryListCtrl);
+angular.module('fridgeListApp').controller('BrowseListsCtrl', BrowseListsCtrl);
 
-function InventoryListCtrl($scope, $mdDialog) {
+function BrowseListsCtrl($scope, $mdDialog) {
   var vm = this;
 
   init();
