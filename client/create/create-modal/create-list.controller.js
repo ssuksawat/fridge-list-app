@@ -11,11 +11,9 @@ function CreateListCtrl($rootScope, $scope, $mdDialog) {
 
   /* ----- PUBLIC ----- */
 
-  function create(isValid) {
-    if (isValid) {
-      lists.save(vm.newList);
-      $mdDialog.hide();
-    }
+  function create() {
+    lists.save(vm.newList);
+    $mdDialog.hide();
   }
 
   /* ----- PRIVATE ----- */

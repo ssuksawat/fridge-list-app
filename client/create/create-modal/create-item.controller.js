@@ -1,6 +1,6 @@
 angular.module('fridgeListApp').controller('CreateItemCtrl', CreateItemCtrl);
 
-function CreateItemCtrl($rootScope, $scope, $stateParams, $mdDialog) {
+function CreateItemCtrl($rootScope, $scope, $stateParams, $meteor, $mdDialog) {
   var vm = this;
   var items;
 
@@ -11,11 +11,9 @@ function CreateItemCtrl($rootScope, $scope, $stateParams, $mdDialog) {
 
   /* ----- PUBLIC ----- */
 
-  function create(isValid) {
-    if (isValid) {
-      items.save(vm.newItem);
-      $mdDialog.hide();
-    }
+  function create() {
+    $meteor.call('addItem', vm.newItem);
+    $mdDialog.hide();
   }
 
   /* ----- PRIVATE ----- */

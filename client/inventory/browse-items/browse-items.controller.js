@@ -1,6 +1,6 @@
 angular.module('fridgeListApp').controller('BrowseItemsCtrl', BrowseItemsCtrl);
 
-function BrowseItemsCtrl($scope, $stateParams) {
+function BrowseItemsCtrl($scope, $stateParams, $meteor) {
   var vm = this;
 
   init();
@@ -15,14 +15,13 @@ function BrowseItemsCtrl($scope, $stateParams) {
   }
 
   function remove($index) {
-    var targetId = vm.items[$index]._id;
-    vm.items.remove(targetId);
+    var target = vm.items[$index];
+    $meteor.call('removeItem', target._id, target.inventoryId);
   }
 
   /* ----- PRIVATE ----- */
 
   function init() {
-    vm.items = $scope.$meteorCollection(Items, false);
-    $scope.$meteorSubscribe('items-by-inventory', $stateParams.listId);
+    vm.items = $scope.$meteorCollection(Items, false).subscribe('items-by-inventory', $stateParams.listId);
   }
 }
