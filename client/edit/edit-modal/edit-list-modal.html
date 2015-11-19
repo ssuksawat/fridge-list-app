@@ -3,13 +3,13 @@
     <div class="md-toolbar-tools">
       <h2>Edit List Details</h2>
       <span flex></span>
-      <md-button class="md-icon-button" ng-click="edit.hide()">
+      <md-button class="md-icon-button" ng-click="edit.cancel()">
         <md-icon aria-label="Close modal">close</md-icon>
       </md-button>
     </div>
   </md-toolbar>
 
-  <form name="editList" layout="column">
+  <form name="editListForm" layout="column">
     <md-dialog-content class="editModal__body">
       <section>
         <md-content layout="column" layout-padding>
@@ -44,8 +44,8 @@
       </section>
 
       <div class="md-actions" layout="row">
-        <span flex></span>
-        <md-button type="submit" class="md-raised md-primary" ng-disabled="editList.$invalid" ng-click="edit.save()">
+        <md-button ng-click="edit.cancel()">Cancel</md-button>
+        <md-button type="submit" class="md-raised md-primary" ng-disabled="editListForm.$invalid" ng-click="edit.save()">
           Save
         </md-button>
       </div>

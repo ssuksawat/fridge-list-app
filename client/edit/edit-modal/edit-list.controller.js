@@ -6,7 +6,7 @@ function EditListCtrl($scope, $rootScope, $meteor, $filter, $mdDialog, selectedL
   init();
 
   vm.addSubscriber = addSubscriber;
-  vm.hide = $mdDialog.hide;
+  vm.cancel = $mdDialog.hide;
   vm.save = save;
 
   /* ----- PUBLIC ----- */

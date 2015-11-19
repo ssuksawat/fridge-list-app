@@ -7,7 +7,7 @@ function CreateItemCtrl($rootScope, $scope, $stateParams, $mdDialog) {
   init();
 
   vm.create = create;
-  vm.cancel = cancel;
+  vm.cancel = $mdDialog.hide;
 
   /* ----- PUBLIC ----- */
 
@@ -16,10 +16,6 @@ function CreateItemCtrl($rootScope, $scope, $stateParams, $mdDialog) {
       items.save(vm.newItem);
       $mdDialog.hide();
     }
-  }
-
-  function cancel() {
-    $mdDialog.hide();
   }
 
   /* ----- PRIVATE ----- */

@@ -9,7 +9,7 @@
     </div>
   </md-toolbar>
 
-  <form name="createItem" layout="column">
+  <form name="createItemForm" layout="column">
     <md-dialog-content class="createModal__body">
       <section>
         <md-content layout="column" layout-padding>
@@ -24,9 +24,9 @@
         </md-content>
       </section>
 
-      <div class="md-actions" layout="row">
-        <span flex></span>
-        <md-button type="submit" class="md-raised md-primary" ng-disabled="createItem.$invalid" ng-click="create.create(createItem.$valid)">
+      <div class="md-actions" layout="row" layout-align="end center">
+        <md-button ng-click="create.cancel()">Cancel</md-button>
+        <md-button type="submit" class="md-raised md-primary" ng-disabled="createItemForm.$invalid" ng-click="create.create(createItem.$valid)">
           Create
         </md-button>
       </div>

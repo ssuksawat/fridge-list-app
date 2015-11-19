@@ -7,7 +7,7 @@ function CreateListCtrl($rootScope, $scope, $mdDialog) {
   init();
 
   vm.create = create;
-  vm.cancel = cancel;
+  vm.cancel = $mdDialog.hide;
 
   /* ----- PUBLIC ----- */
 
@@ -16,10 +16,6 @@ function CreateListCtrl($rootScope, $scope, $mdDialog) {
       lists.save(vm.newList);
       $mdDialog.hide();
     }
-  }
-
-  function cancel() {
-    $mdDialog.hide();
   }
 
   /* ----- PRIVATE ----- */
