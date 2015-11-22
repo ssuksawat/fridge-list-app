@@ -13,7 +13,7 @@ function TopToolbar() {
     var vm = this;
 
     vm.toggleMenu = function() {
-      $mdSidenav('sideMenu').toggle().then(() => {console.log('sideMenu toggled');});
+      $mdSidenav('sideMenu').toggle();
     };
   }
 }

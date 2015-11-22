@@ -3,7 +3,11 @@ angular.module('fridgeListApp').controller('MainCtrl', MainCtrl);
 function MainCtrl($scope, $mdBottomSheet) {
   var vm = this;
 
+  init();
+
   vm.openCreateSheet = openCreateSheet;
+
+  /* ----- PUBLIC ----- */
 
   function openCreateSheet() {
     $mdBottomSheet.show({
@@ -12,4 +16,11 @@ function MainCtrl($scope, $mdBottomSheet) {
       controllerAs: 'action'
     });
   }
+
+  /* ----- PRIVATE ----- */
+
+  function init() {
+    $scope.$meteorSubscribe('inventories');
+  }
+
 }

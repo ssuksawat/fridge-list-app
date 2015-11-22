@@ -30,7 +30,7 @@ function InventoryListsCtrl($scope, $meteor, $mdDialog) {
   /* ---- PRIVATE ----- */
 
   function init() {
-    vm.lists = $scope.$meteorCollection(Inventories, false).subscribe('inventories');
+    vm.lists = $scope.$meteorCollection(Inventories, false);
   }
 
   function showConfirmDeleteDialog(list) {
