@@ -18,3 +18,16 @@
   .md-actions { border-top: 1px solid @color-lightgrey; }
   .md-menu { padding: 0; }
 }
+.inventory__list,
+.inventory__item {
+  &.ng-enter,
+  &.ng-leave,
+  &.ng-move { transition: all .25s ease; }
+
+  &.ng-enter-stagger { transition-delay: .1s; }
+
+  &.ng-enter { transform: scale(0, 0); }
+  &.ng-enter-active { transform: scale(1, 1); }
+  &.ng-leave { transform: scale(1, 1); }
+  &.ng-leave-active { transform: scale(0, 0); }
+}
