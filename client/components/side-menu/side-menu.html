@@ -23,14 +23,24 @@
         </md-button>
       </div>
       <div class="sideMenu__userMenu-options" ng-show="menu.showOptions" layout="column">
-        <md-button ui-sref="settings" flex>Settings</md-button>
-        <md-button ui-sref="logout" class="md-warn" flex>Logout</md-button>
+        <md-button class="sideMenu__menuItem" ui-sref="settings" flex>
+          <div layout layout-align="start center">
+            <i class="material-icons">settings</i>
+            <span>Settings</span>
+          </div>
+        </md-button>
+        <md-button class="md-warn sideMenu__menuItem" ui-sref="logout" flex>
+          <div layout layout-align="start center">
+            <i class="material-icons">mood_bad</i>
+            <span>Logout</span>
+          </div>
+        </md-button>
       </div>
     </div>
 
     <md-list>
       <md-divider></md-divider>
-      <md-list-item class="sideMenu__inventory-list" ng-class="{ 'is-active': menu.isActive('myinventories') }">
+      <md-list-item class="sideMenu__menuItem" ng-class="{ 'is-active': menu.isActive('myinventories') }">
         <md-button class="md-primary md-hue-1" ui-sref="main.inventories" flex>
           <div layout layout-align="start center">
             <i class="material-icons">home</i>
@@ -38,7 +48,7 @@
           </div>
         </md-button>
       </md-list-item>
-      <md-list-item class="sideMenu__inventory-list" ng-class="{ 'is-active': menu.isActive(list._id) }" ng-repeat="list in menu.lists">
+      <md-list-item class="sideMenu__menuItem" ng-class="{ 'is-active': menu.isActive(list._id) }" ng-repeat="list in menu.lists">
         <md-button ui-sref="main.inventoryItems({listId: list._id})" flex>
           <div layout layout-align="start center">
             <i class="material-icons">list</i>
