@@ -20,13 +20,28 @@ function InventoryListsCtrl($scope, $meteor, $mdDialog) {
   }
 
   function remove($index) {
-    var targetId = vm.lists[$index]._id;
-    $meteor.call('removeList', targetId);
+    var target = vm.lists[$index];
+    if (target.items && target.items.length > 0) {
+      showConfirmDeleteDialog(target)
+        .then(() => $meteor.call('removeList', target._id));
+    }
   }
 
   /* ---- PRIVATE ----- */
 
   function init() {
     vm.lists = $scope.$meteorCollection(Inventories, false).subscribe('inventories');
+  }
+
+  function showConfirmDeleteDialog(list) {
+    var title = 'This list is not empty... Are you sure you want to delete it?';
+    var content = 'Deleting this list will result in deletion of ' + list.items.length + ' items.';
+    var confirmDelete = $mdDialog.confirm()
+          .title(title)
+          .textContent(content)
+          .ariaLabel('Confirm delete non-empty list')
+          .ok('Delete it')
+          .cancel('Cancel');
+    return $mdDialog.show(confirmDelete);
   }
 }
