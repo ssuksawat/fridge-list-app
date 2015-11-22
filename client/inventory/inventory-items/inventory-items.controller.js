@@ -1,6 +1,6 @@
-angular.module('fridgeListApp').controller('BrowseItemsCtrl', BrowseItemsCtrl);
+angular.module('fridgeListApp').controller('InventoryItemsCtrl', InventoryItemsCtrl);
 
-function BrowseItemsCtrl($scope, $stateParams, $meteor) {
+function InventoryItemsCtrl($scope, $stateParams, $meteor) {
   var vm = this;
 
   init();

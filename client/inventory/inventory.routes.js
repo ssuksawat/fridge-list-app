@@ -6,14 +6,14 @@ function InventoriesRoutes($stateProvider) {
   $stateProvider
     .state('main.inventories', {
       url: '/inventories',
-      templateUrl: 'client/inventory/browse-lists/browse-lists.html',
-      controller: 'BrowseListsCtrl',
-      controllerAs: 'browse'
+      templateUrl: 'client/inventory/inventory-lists/inventory-lists.html',
+      controller: 'InventoryListsCtrl',
+      controllerAs: 'inventory'
     })
     .state('main.inventoryItems', {
       url: '/inventories/:listId',
-      templateUrl: 'client/inventory/browse-items/browse-items.html',
-      controller: 'BrowseItemsCtrl',
-      controllerAs: 'browse'
+      templateUrl: 'client/inventory/inventory-items/inventory-items.html',
+      controller: 'InventoryItemsCtrl',
+      controllerAs: 'inventory'
     });
 }
