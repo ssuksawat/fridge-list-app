@@ -1,6 +1,6 @@
 angular.module('fridgeListApp').controller('InventoryListsCtrl', InventoryListsCtrl);
 
-function InventoryListsCtrl($scope, $mdDialog) {
+function InventoryListsCtrl($scope, $meteor, $mdDialog) {
   var vm = this;
 
   init();
@@ -21,7 +21,7 @@ function InventoryListsCtrl($scope, $mdDialog) {
 
   function remove($index) {
     var targetId = vm.lists[$index]._id;
-    vm.lists.remove(targetId);
+    $meteor.call('removeList', targetId);
   }
 
   /* ---- PRIVATE ----- */

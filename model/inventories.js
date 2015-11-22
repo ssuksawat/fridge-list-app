@@ -17,3 +17,18 @@ Inventories.deny({
     return _.contains(fields, 'owner');
   }
 });
+
+Meteor.methods({
+  removeList: function (inventoryId) {
+    check(inventoryId, String);
+    var inventory = Inventories.findOne(inventoryId);
+    if (inventory && inventory.items) {
+      //remove each item in the list
+      _.each(inventory.items, (itemId) => {
+        Items.remove(itemId);
+      });
+      //remove the list
+      Inventories.remove(inventoryId);
+    }
+  }
+});
