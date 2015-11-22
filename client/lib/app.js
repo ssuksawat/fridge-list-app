@@ -1,7 +1,8 @@
 angular.module('fridgeListApp', [
   'angular-meteor',
   'ui.router',
-  'ngMaterial'
+  'ngMaterial',
+  'ngSanitize'
 ]);
 
 function onReady() {

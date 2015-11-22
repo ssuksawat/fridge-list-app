@@ -24,3 +24,4 @@ check
 angular:angular-animate
 angular:angular-aria
 angular:angular-material@1.0.0-rc4_1
+angular:angular-sanitize
