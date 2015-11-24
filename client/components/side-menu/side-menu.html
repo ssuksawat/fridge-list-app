@@ -2,10 +2,8 @@
   md-component-id="sideMenu" md-is-locked-open="$mdMedia('gt-md')"
   layout="column" tabindex="-1">
   <md-toolbar class="sideMenu__logo">
-    <div class="md-toolbar-tools">
-      <span flex></span>
+    <div class="md-toolbar-tools" layout layout-align="center center">
       <h4>Fridge List</h4>
-      <span flex></span>
     </div>
   </md-toolbar>
 
@@ -18,7 +16,7 @@
             <i class="material-icons sideMenu__avatar">account_circle</i>
             <h4>{{ ::$root.currentUser | displayName }}</h4>
             <span flex></span>
-            <i class="material-icons expand-icon">expand_more</i>
+            <md-icon class="expand-icon">expand_more</md-icon>
           </div>
         </md-button>
       </div>

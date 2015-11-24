@@ -42,7 +42,6 @@ function TopToolbar() {
 
     function setCurrentLocation() {
       vm.currentLocation = getLocation();
-      console.log('currentLocation: ', vm.currentLocation);
     }
 
   }

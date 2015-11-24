@@ -9,12 +9,16 @@ function SideMenu($rootScope) {
     controllerAs: 'menu'
   };
 
-  function SideMenuCtrl($scope, $stateParams) {
+  function SideMenuCtrl($rootScope, $scope, $stateParams, $mdSidenav) {
     var vm = this;
 
     init();
 
     vm.isActive = isActive;
+
+    /* ----- LISTENER ----- */
+
+    $rootScope.$on('$stateChangeStart', closeMenu);
 
     /* ----- PUBLIC ----- */
 
@@ -29,7 +33,11 @@ function SideMenu($rootScope) {
     /* ----- PRIVATE ----- */
 
     function init() {
-      vm.lists = $scope.$meteorCollection(Inventories, false).subscribe('inventories');
+      vm.lists = $scope.$meteorCollection(Inventories, false);
+    }
+
+    function closeMenu() {
+      $mdSidenav('sideMenu').close();
     }
 
   }
