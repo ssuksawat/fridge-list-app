@@ -1,16 +1,18 @@
 angular.module('fridgeListApp').controller('InventoryListsCtrl', InventoryListsCtrl);
 
-function InventoryListsCtrl($scope, $meteor, $mdDialog) {
+function InventoryListsCtrl($scope, $meteor, $state, $mdDialog) {
   var vm = this;
 
   init();
 
   vm.edit = edit;
   vm.remove = remove;
+  vm.view = view;
 
   /* ----- PUBLIC ----- */
 
-  function edit($index) {
+  function edit($index, $event) {
+    $event.stopPropagation();
     $mdDialog.show({
       templateUrl: 'client/edit/edit-modal/edit-list-modal.html',
       controller: 'EditListCtrl',
@@ -19,12 +21,17 @@ function InventoryListsCtrl($scope, $meteor, $mdDialog) {
     });
   }
 
-  function remove($index) {
+  function remove($index, $event) {
+    $event.stopPropagation();
     var target = vm.lists[$index];
     if (target.items && target.items.length > 0) {
       showConfirmDeleteDialog(target)
         .then(() => $meteor.call('removeList', target._id));
     }
+  }
+
+  function view(id) {
+    $state.go('main.inventoryItems', {listId: id});
   }
 
   /* ---- PRIVATE ----- */
