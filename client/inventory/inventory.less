@@ -1,5 +1,7 @@
 @import "../lib/styles/variables.import.less";
 
+/* ---- Shared Styling ----- */
+
 .inventory {
   background-color: @main-background;
 
@@ -14,20 +16,29 @@
                   0px 1px 10px 0px rgba(0, 0, 0, 0.12);
     }
   }
-
-  .md-actions { border-top: 1px solid @color-lightgrey; }
+  .md-actions { border-top: 1px solid @color-grey-lighter; }
   .md-menu { padding: 0; }
 }
+
+/* ----- List Styling ----- */
+
+.inventory__listDescription {
+  color: @color-grey-darker;
+}
+
+/* ----- Item Styling ----- */
+
+/* ----- Animations ----- */
+
 .inventory__list,
 .inventory__item {
   &.ng-enter,
   &.ng-leave,
-  &.ng-move { transition: all .25s ease; }
-
+  &.ng-move          { transition: all .25s ease; }
   &.ng-enter-stagger { transition-delay: .1s; }
 
-  &.ng-enter { transform: scale(0, 0); }
+  &.ng-enter        { transform: scale(0, 0); }
   &.ng-enter-active { transform: scale(1, 1); }
-  &.ng-leave { transform: scale(1, 1); }
+  &.ng-leave        { transform: scale(1, 1); }
   &.ng-leave-active { transform: scale(0, 0); }
 }
