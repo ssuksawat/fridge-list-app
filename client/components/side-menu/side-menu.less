@@ -1,25 +1,55 @@
-@avatar-size: 40px;
-@color-submenu: #f4f4f6;
-@z-index-top: 2;
-@z-index-bottom: 1;
+@import "../../lib/styles/variables.import.less";
 
-.sideMenu { height: 100vh; }
+@sidemenu-height: 100vh;
+@sidemenu-width:  250px;
+@avatar-size:     60px;
+@color-submenu:   #f4f4f6;
+@z-index-top:     2;
+@z-index-bottom:  1;
+
+#sideMenu {
+  height:    @sidemenu-height;
+  width:     @sidemenu-width;
+  min-width: @sidemenu-width;
+  max-width: @sidemenu-width;
+
+  a,
+  button {
+    margin:          0;
+    padding-top:     5px;
+    padding-bottom:  5px;
+    padding-left:    15px;
+    padding-right:   15px;
+  }
+}
+
+/* ----- User Menu Section ----- */
 
 .sideMenu__userMenu-toggle {
   position: relative;
-  z-index: @z-index-top;
+  z-index:  @z-index-top;
   background-color: white;
 }
 .sideMenu__userMenu-toggle .expand-icon { transition: transform .4s ease; }
 .sideMenu__userMenu-toggle.isToggled .expand-icon{ transform: rotate(-180deg); }
 .sideMenu__avatar {
-  margin: 5px;
+  text-align: left;
   font-size: @avatar-size;
+}
+.sideMenu__userName {
+  line-height: 22px;
+  text-transform: none;
+}
+.sideMenu__userEmail {
+  text-align: left;
+  line-height: 22px;
+  text-transform: none;
 }
 .sideMenu__userMenu-options {
   z-index: @z-index-bottom;
   // background-color: @color-submenu;
 
+  // Slide in-out animation
   &.ng-hide {
     margin-top: -100px;
     opacity: 0;
@@ -29,10 +59,11 @@
     transition: all .4s ease;
   }
 }
-.sideMenu__menuItem {
-  i {
-    margin-right: 15px;
-  }
 
+/* ----- Menu Section ----- */
+
+.sideMenu__menuItem {
+  min-height: inherit;
+  i { margin-right: 15px; }
   &.is-active { background: rgb(238,238,238); }
 }

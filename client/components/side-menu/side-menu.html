@@ -1,4 +1,4 @@
-<md-sidenav class="md-sidenav-left md-accent md-whiteframe-z2 sideMenu"
+<md-sidenav id="sideMenu" class="md-sidenav-left md-accent md-whiteframe-z2"
   md-component-id="sideMenu" md-is-locked-open="$mdMedia('gt-md')"
   layout="column" tabindex="-1">
   <md-toolbar class="sideMenu__logo">
@@ -12,11 +12,13 @@
     <div class="sideMenu__userMenu">
       <div class="sideMenu__userMenu-toggle" ng-class="{isToggled: menu.showOptions}" layout="row">
         <md-button ng-click="menu.showOptions = !menu.showOptions" flex>
-          <div layout="row" layout-align="center center" flex>
+          <div layout="column" layout-align="start start">
             <i class="material-icons sideMenu__avatar">account_circle</i>
-            <h4>{{ ::$root.currentUser | displayName }}</h4>
-            <span flex></span>
-            <md-icon class="expand-icon">expand_more</md-icon>
+            <strong class="sideMenu__userName">{{ ::$root.currentUser | displayName }}</strong>
+            <div layout layout-fill>
+              <span class="sideMenu__userEmail" flex>{{ ::$root.currentUser | email }}</span>
+              <md-icon class="expand-icon">expand_more</md-icon>
+            </div>
           </div>
         </md-button>
       </div>
@@ -39,7 +41,7 @@
     <md-list>
       <md-divider></md-divider>
       <md-list-item class="sideMenu__menuItem" ng-class="{ 'is-active': menu.isActive('myinventories') }">
-        <md-button class="md-primary md-hue-1" ui-sref="main.inventories" flex>
+        <md-button ui-sref="main.inventories" flex>
           <div layout layout-align="start center">
             <i class="material-icons">home</i>
             <span>My Inventories</span>
