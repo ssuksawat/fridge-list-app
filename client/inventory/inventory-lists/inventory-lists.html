@@ -17,7 +17,7 @@
         </md-card-content>
 
         <md-card-actions class="md-actions" layout="row" layout-align="start center">
-          <md-button class="md-icon-button" ng-click="inventory.edit($index, $event)"><md-icon>info</md-icon></md-button>
+          <md-button class="md-icon-button" ng-click="inventory.info($index, $event)"><md-icon>info</md-icon></md-button>
           <md-button class="md-icon-button" ng-click="inventory.remove($index, $event)"><md-icon>delete</md-icon></md-button>
           <span flex></span>
           <md-button class="md-primary md-hue-3" ui-sref="main.inventoryItems({listId: list._id})">View</md-button>

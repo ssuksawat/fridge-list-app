@@ -5,18 +5,18 @@ function InventoryListsCtrl($scope, $meteor, $state, $mdDialog) {
 
   init();
 
-  vm.edit = edit;
+  vm.info = info;
   vm.remove = remove;
   vm.view = view;
 
   /* ----- PUBLIC ----- */
 
-  function edit($index, $event) {
+  function info($index, $event) {
     $event.stopPropagation();
     $mdDialog.show({
-      templateUrl: 'client/edit/edit-modal/edit-list-modal.html',
-      controller: 'EditListCtrl',
-      controllerAs: 'edit',
+      templateUrl: 'client/info/list-info/list-info-modal.html',
+      controller: 'ListInfoCtrl',
+      controllerAs: 'info',
       locals: { selectedList: vm.lists[$index] }
     });
   }
