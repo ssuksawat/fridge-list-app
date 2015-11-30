@@ -13,7 +13,6 @@ function SideMenu($rootScope) {
     var vm = this;
 
     init();
-    console.log($state);
 
     vm.isActive = isActive;
 
