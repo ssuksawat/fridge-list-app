@@ -1,11 +1,24 @@
 @import "../../lib/styles/variables.import.less";
 
-@sidemenu-height: 100vh;
-@sidemenu-width:  250px;
-@avatar-size:     60px;
-@color-submenu:   #f4f4f6;
-@z-index-top:     2;
-@z-index-bottom:  1;
+@sidemenu-height:       100vh;
+@sidemenu-width:        250px;
+@sidemenu-width-shrk:   55px;  //menu width when shrunk
+@avatar-md:           24px;
+@avatar-lg:        60px;
+@color-submenu:         #f4f4f6;
+@z-index-top:           2;
+@z-index-bottom:        1;
+
+.appName {
+  font-weight: bold;
+}
+.appName__initial {
+  margin-right:  5px;
+  padding:       5px;
+  border:        2px solid white;
+  border-radius: 4px;
+  font-style:    italic;
+}
 
 #sideMenu {
   height:    @sidemenu-height;
@@ -23,8 +36,37 @@
   }
 }
 
+/* ----- Shrinking Sidemenu Styling ----- */
+/* Side menu is locked open when screen is LARGE
+ * But it will shrink to only show icons by default
+ * Hovering over will show the full width menu
+ */
+
+.show-on-shrink       { display: none; }
+@media (min-width: @screen-md-max) {
+  #sideMenu {
+    width:     @sidemenu-width-shrk;
+    min-width: @sidemenu-width-shrk;
+    max-width: @sidemenu-width-shrk;
+    transition: all .25s ease;
+
+    .hide-on-shrink       { display: none; }
+    .show-on-shrink      { display: inherit; }
+  }
+  #sideMenu:hover {
+    width:     @sidemenu-width;
+    min-width: @sidemenu-width;
+    max-width: @sidemenu-width;
+
+    .hide-on-shrink       { display: inherit; }
+    .show-on-shrink       { display: none; }
+  }
+}
+
 /* ----- User Menu Section ----- */
 
+.avatar        { font-size: @avatar-md; }
+.avatar--large { font-size: @avatar-lg; }
 .sideMenu__userMenu-toggle {
   position: relative;
   z-index:  @z-index-top;
@@ -32,10 +74,6 @@
 }
 .sideMenu__userMenu-toggle .expand-icon { transition: transform .4s ease; }
 .sideMenu__userMenu-toggle.isToggled .expand-icon{ transform: rotate(-180deg); }
-.sideMenu__avatar {
-  text-align: left;
-  font-size: @avatar-size;
-}
 .sideMenu__userName {
   line-height: 22px;
   text-transform: none;
@@ -64,6 +102,6 @@
 
 .sideMenu__menuItem {
   min-height: inherit;
-  i { margin-right: 15px; }
+  i { margin-right: 16px; }
   &.is-active { background: rgb(238,238,238); }
 }

@@ -2,18 +2,20 @@
   md-component-id="sideMenu" md-is-locked-open="$mdMedia('gt-md')"
   layout="column" tabindex="-1">
   <md-toolbar class="sideMenu__logo">
-    <div class="md-toolbar-tools" layout layout-align="center center">
-      <h4>Fridge List</h4>
+    <div class="md-toolbar-tools appName" layout layout-align="center center">
+      <span class="appName__initial">F</span>
+      <span class="hide-on-shrink">ridge List</span>
     </div>
   </md-toolbar>
 
   <md-content>
 
-    <div class="sideMenu__userMenu">
+    <div class="sideMenu__userMenu hide-on-shrink">
       <div class="sideMenu__userMenu-toggle" ng-class="{isToggled: menu.showOptions}" layout="row">
         <md-button ng-click="menu.showOptions = !menu.showOptions" flex>
           <div layout="column" layout-align="start start">
-            <i class="material-icons sideMenu__avatar">account_circle</i>
+            <!-- TODO: replace with real avatar -->
+            <i class="material-icons avatar--large">account_circle</i>
             <strong class="sideMenu__userName">{{ ::$root.currentUser | displayName }}</strong>
             <div layout layout-fill>
               <span class="sideMenu__userEmail" flex>{{ ::$root.currentUser | email }}</span>
@@ -23,7 +25,7 @@
         </md-button>
       </div>
       <div class="sideMenu__userMenu-options" ng-show="menu.showOptions" layout="column">
-        <md-button class="sideMenu__menuItem" ui-sref="settings" flex>
+        <md-button class="sideMenu__menuItem" ui-sref="settings" ng-disabled="true" flex>
           <div layout layout-align="start center">
             <i class="material-icons">settings</i>
             <span>Settings</span>
@@ -39,23 +41,40 @@
     </div>
 
     <md-list>
-      <md-divider></md-divider>
-      <md-list-item class="sideMenu__menuItem" ng-class="{ 'is-active': menu.isActive('myinventories') }">
-        <md-button ui-sref="main.inventories" flex>
+      <!-- TODO: replace with real avatar -->
+      <md-list-item class="avatar show-on-shrink">
+        <md-icon>account_circle</md-icon>
+      </md-list-item>
+
+      <!-- Main Menu -->
+      <md-subheader class="hide-on-shrink">Main Menu</md-subheader>
+      <md-list-item class="sideMenu__menuItem"
+        ng-class="{ 'is-active': menu.isActive('{{ nav.sref }}') }"
+        ng-repeat="nav in menu.menus">
+        <md-button ui-sref="{{::nav.sref}}" ng-disabled="nav.disabled" flex>
           <div layout layout-align="start center">
-            <i class="material-icons">home</i>
-            <span>My Inventories</span>
+            <i class="material-icons">{{::nav.icon}}</i>
+            <span>{{::nav.label}}</span>
           </div>
         </md-button>
       </md-list-item>
-      <md-list-item class="sideMenu__menuItem" ng-class="{ 'is-active': menu.isActive(list._id) }" ng-repeat="list in menu.lists">
-        <md-button ui-sref="main.inventoryItems({listId: list._id})" flex>
-          <div layout layout-align="start center">
-            <i class="material-icons">list</i>
-            <span>{{list.title}}</span>
-          </div>
-        </md-button>
-      </md-list-item>
+
+      <!-- All Lists -->
+      <div class="hide-on-shrink">
+        <md-subheader>My Lists</md-subheader>
+        <md-list-item class="sideMenu__menuItem"
+          ng-class="{ 'is-active': menu.isActive(list._id) }"
+          ng-repeat="list in menu.lists">
+          <md-button ui-sref="main.inventoryItems({listId: list._id})" flex>
+            <div layout layout-align="start center">
+              <i class="material-icons">list</i>
+              <span>{{list.title}}</span>
+            </div>
+          </md-button>
+        </md-list-item>
+      </div>
+
+
     </md-list>
 
   </md-content>

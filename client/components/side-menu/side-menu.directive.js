@@ -9,10 +9,11 @@ function SideMenu($rootScope) {
     controllerAs: 'menu'
   };
 
-  function SideMenuCtrl($rootScope, $scope, $stateParams, $mdSidenav) {
+  function SideMenuCtrl($rootScope, $scope, $state, $stateParams, $mdSidenav) {
     var vm = this;
 
     init();
+    console.log($state);
 
     vm.isActive = isActive;
 
@@ -26,13 +27,17 @@ function SideMenu($rootScope) {
       if ($stateParams.listId) {
         return $stateParams.listId === id;
       } else {
-        return id === 'myinventories';
+        return $state.current.name === id;
       }
     }
 
     /* ----- PRIVATE ----- */
 
     function init() {
+      vm.menus = [
+        { label: 'Home', sref: 'main.inventories', icon: 'home' },
+        { label: 'Shopping List', sref: 'cart', icon: 'shopping_cart', disabled: true }
+      ];
       vm.lists = $scope.$meteorCollection(Inventories, false);
     }
 

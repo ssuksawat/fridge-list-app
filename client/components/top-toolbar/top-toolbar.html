@@ -5,15 +5,15 @@
       <md-icon class="material-icons">menu</md-icon>
       <md-tooltip hide-sm>Menu</md-tooltip>
     </md-button>
-    <h2 hide-gt-md ng-bind-html="toolbar.currentLocation"></h2>
+    <!-- TODO: implement dropdown location navigation -->
+    <md-button class="locationDropdown" layout layout-align="center center">
+      <span>{{ toolbar.currentLocation }}</span>
+      <md-icon class="material-icons">arrow_drop_down</md-icon>
+    </md-button>
     <span flex></span>
     <md-button class="md-icon-button" aria-label="Search">
       <md-icon class="material-icons">search</md-icon>
       <md-tooltip hide-sm>Search</md-tooltip>
-    </md-button>
-    <md-button class="md-icon-button" aria-label="View Shopping cart">
-      <md-icon class="material-icons">shopping_cart</md-icon>
-      <md-tooltip hide-sm>View Cart</md-tooltip>
     </md-button>
     <!-- <md-input-container class="searchbar" md-no-float flex>
       <md-icon class="material-icons">search</md-icon>
