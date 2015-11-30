@@ -1,6 +1,7 @@
 angular.module('fridgeListApp').controller('MainCtrl', MainCtrl);
 
 function MainCtrl($scope, $mdBottomSheet) {
+  const LOADING = 'indeterminate';  //md-progress type
   var vm = this;
 
   init();
@@ -20,7 +21,16 @@ function MainCtrl($scope, $mdBottomSheet) {
   /* ----- PRIVATE ----- */
 
   function init() {
-    $scope.$meteorSubscribe('inventories');
+    startLoading();
+    $scope.$meteorSubscribe('inventories').finally(stopLoading);
+  }
+
+  function startLoading() {
+    vm.loading = LOADING;
+  }
+
+  function stopLoading() {
+    vm.loading = undefined;
   }
 
 }
