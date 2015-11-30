@@ -19,6 +19,12 @@
   border-radius: 4px;
   font-style:    italic;
 }
+.avatar {
+  padding-top:    5px;
+  padding-bottom: 5px;
+  font-size:      @avatar-lg;
+  transition:     all .25s ease;
+}
 
 #sideMenu {
   height:    @sidemenu-height;
@@ -45,12 +51,13 @@
 .show-on-shrink       { display: none; }
 @media (min-width: @screen-sm-max) {
   #sideMenu {
-    width:     @sidemenu-width-shrk;
-    min-width: @sidemenu-width-shrk;
-    max-width: @sidemenu-width-shrk;
+    width:      @sidemenu-width-shrk;
+    min-width:  @sidemenu-width-shrk;
+    max-width:  @sidemenu-width-shrk;
     transition: all .25s ease;
 
-    .hide-on-shrink       { display: none; }
+    .avatar              { font-size: @avatar-md; }
+    .hide-on-shrink      { display: none; }
     .show-on-shrink      { display: inherit; }
   }
   #sideMenu:hover {
@@ -58,6 +65,7 @@
     min-width: @sidemenu-width;
     max-width: @sidemenu-width;
 
+    .avatar               { font-size: @avatar-lg; }
     .hide-on-shrink       { display: inherit; }
     .show-on-shrink       { display: none; }
   }
@@ -65,8 +73,6 @@
 
 /* ----- User Menu Section ----- */
 
-.avatar        { font-size: @avatar-md; }
-.avatar--large { font-size: @avatar-lg; }
 .sideMenu__userMenu-toggle {
   position: relative;
   z-index:  @z-index-top;

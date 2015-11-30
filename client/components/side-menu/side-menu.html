@@ -10,14 +10,14 @@
 
   <md-content>
 
-    <div class="sideMenu__userMenu hide-on-shrink">
+    <div class="sideMenu__userMenu">
       <div class="sideMenu__userMenu-toggle" ng-class="{isToggled: menu.showOptions}" layout="row">
         <md-button ng-click="menu.showOptions = !menu.showOptions" flex>
           <div layout="column" layout-align="start start">
             <!-- TODO: replace with real avatar -->
-            <i class="material-icons avatar--large">account_circle</i>
-            <strong class="sideMenu__userName">{{ ::$root.currentUser | displayName }}</strong>
-            <div layout layout-fill>
+            <i class="material-icons avatar">account_circle</i>
+            <strong class="sideMenu__userName hide-on-shrink">{{ ::$root.currentUser | displayName }}</strong>
+            <div class="hide-on-shrink" layout layout-fill>
               <span class="sideMenu__userEmail" flex>{{ ::$root.currentUser | email }}</span>
               <md-icon class="expand-icon">expand_more</md-icon>
             </div>
@@ -41,11 +41,6 @@
     </div>
 
     <md-list>
-      <!-- TODO: replace with real avatar -->
-      <md-list-item class="avatar show-on-shrink">
-        <md-icon>account_circle</md-icon>
-      </md-list-item>
-
       <!-- Main Menu -->
       <md-subheader class="hide-on-shrink">Main Menu</md-subheader>
       <md-list-item class="sideMenu__menuItem"
@@ -73,8 +68,6 @@
           </md-button>
         </md-list-item>
       </div>
-
-
     </md-list>
 
   </md-content>
