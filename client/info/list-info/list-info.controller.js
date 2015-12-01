@@ -20,6 +20,7 @@ function ListInfoCtrl($scope, $rootScope, $meteor, $filter, $mdDialog, selectedL
       vm.listSubscribers.push(user);
     }
     vm.emailInput = undefined;
+    vm.addingUser = undefined;
   }
 
   function save() {
