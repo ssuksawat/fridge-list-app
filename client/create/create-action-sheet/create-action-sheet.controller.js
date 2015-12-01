@@ -38,8 +38,8 @@ function CreateActionSheetCtrl($stateParams, $mdBottomSheet, $mdDialog) {
 
   function init() {
     vm.items = [
-      {name: 'New List', icon: 'assignment', action: openCreateListModal, disabled: $stateParams.listId},
-      {name: 'New Item', icon: 'add_box', action: openCreateItemModal, disabled: !$stateParams.listId},
+      {name: 'New List', icon: 'assignment', action: openCreateListModal},
+      {name: 'New Item', icon: 'add_box', action: openCreateItemModal},
       {name: 'Scan Item', icon: 'photo_camera', action: openScanItemModal, disabled: true}
     ];
   }

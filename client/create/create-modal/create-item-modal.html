@@ -18,6 +18,14 @@
             <input ng-model="create.newItem.title" type="text" ng-required="true">
           </md-input-container>
           <md-input-container>
+            <label>List <small>(required)</small></label>
+            <md-select ng-model="create.newItem.inventoryId" ng-required="true">
+              <md-option ng-value="list._id" ng-repeat="list in create.lists">
+                {{ list.title }}
+              </md-option>
+            </md-select>
+          </md-input-container>
+          <md-input-container>
             <label>Qty</label>
             <input ng-model="create.newItem.qty" type="number" min="0">
           </md-input-container>

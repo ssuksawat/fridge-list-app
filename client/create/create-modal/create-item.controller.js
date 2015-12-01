@@ -19,6 +19,7 @@ function CreateItemCtrl($rootScope, $scope, $stateParams, $meteor, $mdDialog) {
   /* ----- PRIVATE ----- */
 
   function init() {
+    vm.lists = $scope.$meteorCollection(Inventories, false);
     vm.newItem = { inventoryId: $stateParams.listId };
     items = $scope.$meteorCollection(Items, false);
   }
