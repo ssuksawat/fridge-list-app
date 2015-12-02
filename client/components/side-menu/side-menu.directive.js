@@ -14,6 +14,7 @@ function SideMenu($rootScope) {
 
     init();
 
+    vm.getButtonIcon = getButtonIcon;
     vm.isActive = isActive;
 
     /* ----- LISTENER ----- */
@@ -21,6 +22,13 @@ function SideMenu($rootScope) {
     $rootScope.$on('$stateChangeStart', closeMenu);
 
     /* ----- PUBLIC ----- */
+
+    function getButtonIcon(button) {
+      switch (button) {
+        case 'expand':
+        return vm.expanded ? 'chevron_left' : 'chevron_right';
+      }
+    }
 
     function isActive(id) {
       if ($stateParams.listId) {
@@ -34,7 +42,8 @@ function SideMenu($rootScope) {
 
     function init() {
       vm.menus = [
-        { label: 'Home', sref: 'main.inventories', icon: 'home' },
+        { label: 'Dashboard', sref: 'dashboard', icon: 'dashboard', disabled: true },
+        { label: 'Inventories', sref: 'main.inventories', icon: 'assignment' },
         { label: 'Shopping List', sref: 'cart', icon: 'shopping_cart', disabled: true }
       ];
       vm.lists = $scope.$meteorCollection(Inventories, false);

@@ -29,7 +29,7 @@ function TopToolbar() {
     function getLocation() {
       switch($state.current.name) {
         case 'main.inventories':
-          return 'Home';
+          return 'Inventories';
         case 'main.inventoryItems':
           var currentList = Inventories.findOne($stateParams.listId);
           return currentList.title;

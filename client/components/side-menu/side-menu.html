@@ -1,4 +1,5 @@
 <md-sidenav id="sideMenu" class="md-sidenav-left md-accent md-whiteframe-z2"
+  ng-class="{isToggled: menu.expanded}"
   md-component-id="sideMenu" md-is-locked-open="$mdMedia('gt-sm')"
   layout="column" tabindex="-1">
   <md-toolbar class="sideMenu__logo">
@@ -8,7 +9,7 @@
     </div>
   </md-toolbar>
 
-  <md-content>
+  <md-content flex>
 
     <div class="sideMenu__userMenu">
       <div class="sideMenu__userMenu-toggle" ng-class="{isToggled: menu.showOptions}" layout="row">
@@ -41,6 +42,7 @@
     </div>
 
     <md-list>
+      <md-divider></md-divider>
       <!-- Main Menu -->
       <md-subheader class="hide-on-shrink">Main Menu</md-subheader>
       <md-list-item class="sideMenu__menuItem"
@@ -72,4 +74,10 @@
 
   </md-content>
 
+  <div layout layout-align="center center">
+    <md-button ng-click="menu.expanded = !menu.expanded" flex>
+      <md-icon>{{menu.getButtonIcon('expand')}}</md-icon>
+    </md-button>
+  </div>
+  
 </md-sidenav>
