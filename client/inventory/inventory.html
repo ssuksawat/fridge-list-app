@@ -1,0 +1,42 @@
+<div class="inventory" layout>
+
+  <section class="inventory__section--left" layout="column" hide-sm>
+    <div class="section__header" layout>
+      <md-button class="md-raised md-accent md-hue-1" flex="50">New</md-button>
+    </div>
+    <div class="section__body">
+      <div class="section__subheader">My Lists</div>
+      <md-list class="inventory__listGroup">
+        <md-list-item class="inventory__list"
+          ng-repeat="list in inventory.lists | shared:'false'"
+          ng-class="{ 'is-active': inventory.isActive(list) }">
+          <md-button ui-sref="main.inventories.items({listId: list._id})" flex>
+            <div layout layout-align="space-between center">
+              <span class="list__title" flex>{{list.title}}</span>
+              <span class="list__countBanner">{{list.items.length}}</span>
+            </div>
+          </md-button>
+        </md-list-item>
+      </md-list>
+      <md-divider class="section__divider"></md-divider>
+      <div class="section__subheader" hide-sm>Shared Lists</div>
+      <md-list class="inventory__listGroup">
+        <md-list-item class="inventory__list"
+          ng-repeat="list in inventory.lists | shared:'true'"
+          ng-class="{ 'is-active': inventory.isActive(list) }">
+          <md-button ui-sref="main.inventories.items({listId: list._id})" flex>
+            <div layout layout-align="space-between center">
+              <span class="list__title" flex>{{list.title}}</span>
+              <span class="list__countBanner">{{list.items.length}}</span>
+            </div>
+          </md-button>
+        </md-list-item>
+      </md-list>
+    </div>
+  </section>
+
+  <section class="inventory__section--right" layout="column" flex>
+    <ui-view></ui-view>
+  </section>
+
+</div>

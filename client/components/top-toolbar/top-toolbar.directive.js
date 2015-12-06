@@ -29,10 +29,11 @@ function TopToolbar() {
     function getLocation() {
       switch($state.current.name) {
         case 'main.inventories':
+        case 'main.inventories.items':
           return 'Inventories';
-        case 'main.inventoryItems':
-          var currentList = Inventories.findOne($stateParams.listId);
-          return currentList.title;
+        // case 'main.inventoryItems':
+        //   var currentList = Inventories.findOne($stateParams.listId);
+        //   return currentList.title;
         case 'settings':
           return 'Settings';
         default:

@@ -50,12 +50,13 @@
  */
 
 .show-on-shrink       { display: none; }
+.sideMenu__expandIcon { transition: transform .25s ease; }
 @media (min-width: @screen-sm-max) {
   #sideMenu {
     width:      @sidemenu-width-shrk;
     min-width:  @sidemenu-width-shrk;
     max-width:  @sidemenu-width-shrk;
-    transition: all .25s ease;
+    // transition: all .25s ease;  //TODO: fix janky transition, probably too much reflow
 
     .avatar              { font-size: @avatar-md; }
     .hide-on-shrink      { display: none; }
@@ -69,6 +70,7 @@
     .avatar               { font-size: @avatar-lg; }
     .hide-on-shrink       { display: inherit; }
     .show-on-shrink       { display: none; }
+    .sideMenu__expandIcon { transform: rotate(180deg) }
   }
 }
 

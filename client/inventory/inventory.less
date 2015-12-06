@@ -2,6 +2,8 @@
 
 /* ---- Shared Styling ----- */
 
+@width-left-section: 250px;
+
 .inventory {
   background-color: @main-background;
 
@@ -19,14 +21,101 @@
   .md-actions { border-top: 1px solid @color-grey-lighter; }
   .md-menu { padding: 0; }
 }
+.inventory__section--left {
+  width: @width-left-section;
+}
+.inventory__section--right {
+
+}
+.section__header {
+  margin-bottom: 10px;
+}
+.section__subheader {
+  margin-top:    10px;
+  margin-bottom: 10px;
+  color:         @color-grey-darkest;
+  font-weight:   bold;
+}
+.section__body {
+  padding-left: 10px;
+}
+.section__divider {
+  margin-top:    20px;
+  margin-bottom: 20px;
+}
+.inventoryAction__buttonGroup {
+  margin: 6px 8px 6px 8px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+
+  .md-button {
+    margin: 0;
+    width: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: white;
+    md-icon { font-size: 20px; }
+  }
+  .action__button--middle {
+    border-left:  1px solid @color-grey-lighter;
+    border-right: 1px solid @color-grey-lighter;
+  }
+  .action__button--left {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  .action__button--right {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+}
+#filterButton,
+#orderButton {
+  margin-left: 15px;
+}
 
 /* ----- List Styling ----- */
 
+.inventory__listGroup{
+  padding-left:  10px;
+  padding-right: 10px;
+}
+.inventory__list {
+  min-height: 40px;
+  .md-button { margin: 0; }
+
+  /* States */
+  &.is-active {
+    border-radius:        5px;
+    background-color:     @color-blue-lightest;
+    .list__title { color: @color-blue-darker; }
+  }
+}
+.list__title {
+  text-align:     left;
+  overflow:       hidden;
+  text-overflow:  ellipsis;
+  white-space:    nowrap;
+  color:          @color-grey-darker;
+}
+.list__countBanner {
+  line-height:      1.2;
+  font-size:        12px;
+  padding-left:     5px;
+  padding-right:    5px;
+  border-radius:    5px;
+  background-color: @color-grey;
+  color:            white;
+}
 .inventory__listDescription {
   color: @color-grey-darker;
 }
 
 /* ----- Item Styling ----- */
+
+
+
 
 /* ----- Animations ----- */
 

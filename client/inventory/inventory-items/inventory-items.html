@@ -1,17 +1,38 @@
-<!-- View Items in List -->
+<!-- Mobile View Items -->
 <div class="inventory">
 
+  <div class="section__header" layout>
+    <!-- <span flex></span> -->
+    <div class="inventoryAction__buttonGroup" layout>
+      <md-button class="action__button--left"><md-icon>info</md-icon></md-button>
+      <md-button class="action__button--middle"><md-icon>delete</md-icon></md-button>
+      <md-button class="action__button--right"><md-icon>add_shopping_cart</md-icon></md-button>
+    </div>
+    <md-button id="filterButton" class="md-raised">
+      <div layout>
+        <span>Filter By</span>
+        <md-icon>arrow_drop_down</md-icon>
+      </div>
+    </md-button>
+    <md-button id="orderButton" class="md-raised">
+      <div layout>
+        <span>Order By</span>
+        <md-icon>arrow_drop_down</md-icon>
+      </div>
+    </md-button>
+  </div>
+
   <md-list layout layout-align="start start" layout-wrap flex>
-    <md-list-item class="inventory__item" ng-repeat="item in inventory.items" flex-sm="100">
+    <md-list-item class="inventory__item" ng-repeat="item in inventoryItems.items" flex-sm="100">
       <md-card>
         <md-card-content>
           <h2 class="md-title">{{item.title}}</h2>
           <span>Qty: {{item.qty || 0}}</span>
         </md-card-content>
 
-        <md-card-actions class="md-actions" layout="row" layout-align="center center">
-          <md-button class="md-icon-button" ng-click="inventory.edit($index)"><md-icon>info</md-icon></md-button>
-          <md-button class="md-icon-button" ng-click="inventory.remove($index)"><md-icon>delete</md-icon></md-button>
+        <md-card-actions class="md-actions" layout="row" layout-align="center center" hide-gt-sm>
+          <md-button class="md-icon-button" ng-click="inventoryItems.edit($index)"><md-icon>info</md-icon></md-button>
+          <md-button class="md-icon-button" ng-click="inventoryItems.remove($index)"><md-icon>delete</md-icon></md-button>
           <md-button class="md-icon-button"><md-icon>add_shopping_cart</md-icon></md-button>
         </md-card-actions>
 
@@ -20,4 +41,3 @@
   </md-list>
 
 </div>
-<!-- End View Items -->

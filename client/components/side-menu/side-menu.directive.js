@@ -14,7 +14,6 @@ function SideMenu($rootScope) {
 
     init();
 
-    vm.getButtonIcon = getButtonIcon;
     vm.isActive = isActive;
 
     /* ----- LISTENER ----- */
@@ -22,13 +21,6 @@ function SideMenu($rootScope) {
     $rootScope.$on('$stateChangeStart', closeMenu);
 
     /* ----- PUBLIC ----- */
-
-    function getButtonIcon(button) {
-      switch (button) {
-        case 'expand':
-        return vm.expanded ? 'chevron_left' : 'chevron_right';
-      }
-    }
 
     function isActive(id) {
       if ($stateParams.listId) {
