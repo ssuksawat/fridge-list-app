@@ -2,7 +2,20 @@
 
   <section class="inventory__section--left" layout="column" hide-sm>
     <div class="section__header" layout>
-      <md-button class="md-raised md-accent md-hue-1" flex="50">New</md-button>
+      <md-menu md-offset="5 45" layout flex="50">
+        <md-button class="md-raised md-accent md-hue-1" flex
+          ng-click="$mdOpenMenu($event)">
+          New
+        </md-button>
+        <md-menu-content>
+          <md-menu-item>
+            <md-button ng-click="::inventory.openModal('list')">New List</md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ng-click="::inventory.openModal('item')">New Item</md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
     </div>
     <div class="section__body">
       <div class="section__subheader">My Lists</div>

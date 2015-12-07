@@ -1,6 +1,6 @@
 angular.module('fridgeListApp').controller('CreateActionSheetCtrl', CreateActionSheetCtrl);
 
-function CreateActionSheetCtrl($stateParams, $mdBottomSheet, $mdDialog) {
+function CreateActionSheetCtrl($stateParams, $mdBottomSheet, createService) {
   var vm = this;
 
   init();
@@ -8,22 +8,6 @@ function CreateActionSheetCtrl($stateParams, $mdBottomSheet, $mdDialog) {
   vm.select = select;
 
   /* ----- PUBLIC ----- */
-
-  function openCreateItemModal() {
-    $mdDialog.show({
-      templateUrl: 'client/create/create-modal/create-item-modal.html',
-      controller: 'CreateItemCtrl',
-      controllerAs: 'create'
-    });
-  }
-
-  function openCreateListModal() {
-    $mdDialog.show({
-      templateUrl: 'client/create/create-modal/create-list-modal.html',
-      controller: 'CreateListCtrl',
-      controllerAs: 'create'
-    });
-  }
 
   function openScanItemModal() {
 
@@ -38,8 +22,8 @@ function CreateActionSheetCtrl($stateParams, $mdBottomSheet, $mdDialog) {
 
   function init() {
     vm.items = [
-      {name: 'New List', icon: 'assignment', action: openCreateListModal},
-      {name: 'New Item', icon: 'add_box', action: openCreateItemModal},
+      {name: 'New List', icon: 'assignment', action: createService.openCreateListModal},
+      {name: 'New Item', icon: 'add_box', action: createService.openCreateItemModal},
       {name: 'Scan Item', icon: 'photo_camera', action: openScanItemModal, disabled: true}
     ];
   }
