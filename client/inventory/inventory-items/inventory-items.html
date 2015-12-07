@@ -2,8 +2,7 @@
 <div class="inventory">
 
   <div class="section__header" layout>
-    <!-- <span flex></span> -->
-    <div class="inventoryAction__buttonGroup" layout>
+    <div class="inventoryAction__buttonGroup" layout hide-sm>
       <md-button class="action__button--left"><md-icon>info</md-icon></md-button>
       <md-button class="action__button--middle"><md-icon>delete</md-icon></md-button>
       <md-button class="action__button--right"><md-icon>add_shopping_cart</md-icon></md-button>
@@ -25,9 +24,14 @@
   <md-list layout layout-align="start start" layout-wrap flex>
     <md-list-item class="inventory__item" ng-repeat="item in inventoryItems.items" flex-sm="100">
       <md-card>
-        <md-card-content>
-          <h2 class="md-title">{{item.title}}</h2>
-          <span>Qty: {{item.qty || 0}}</span>
+        <md-card-content layout>
+          <div layout="column" layout-align="start start" flex>
+            <h2 class="inventory__itemTitle">{{item.title}}</h2>
+          </div>
+          <div class="inventory__itemQty" layout="column" layout-align="start center">
+            <span class="inventory__qtyLabel">Qty</span>
+            <span class="inventory__qtyValue">{{item.qty || 0}}</span>
+          </div>
         </md-card-content>
 
         <md-card-actions class="md-actions" layout="row" layout-align="center center" hide-gt-sm>
