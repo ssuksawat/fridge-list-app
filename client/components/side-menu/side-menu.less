@@ -70,7 +70,11 @@
     .avatar               { font-size: @avatar-lg; }
     .hide-on-shrink       { display: inherit; }
     .show-on-shrink       { display: none; }
-    .sideMenu__expandIcon { transform: rotate(180deg) }
+    #menuExpandButton { background-color: @color-grey-lightest; }
+    .sideMenu__expandIcon {
+      transform: rotate(180deg);
+      color:     @primary-color-3;
+    }
   }
 }
 
