@@ -1,11 +1,12 @@
 angular.module('fridgeListApp').controller('MainCtrl', MainCtrl);
 
-function MainCtrl($scope, $mdBottomSheet) {
+function MainCtrl($scope, $rootScope, $mdBottomSheet, $mdMedia) {
   const LOADING = 'indeterminate';  //md-progress type
   var vm = this;
 
   init();
 
+  $rootScope.$mdMedia = $mdMedia;
   vm.openCreateSheet = openCreateSheet;
 
   /* ----- PUBLIC ----- */
