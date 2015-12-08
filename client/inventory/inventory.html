@@ -1,6 +1,8 @@
 <div class="inventory" layout>
 
-  <section class="inventory__section--left" layout="column" hide-sm>
+  <!-- Left Section -->
+  <!-- hides in Mobile view -->
+  <section class="inventory__section--left" layout="column" ng-if="$root.$mdMedia('gt-sm')">
     <div class="section__header" layout>
       <md-menu md-offset="5 45" layout flex="50">
         <md-button class="md-raised md-accent md-hue-1" flex
@@ -9,10 +11,10 @@
         </md-button>
         <md-menu-content>
           <md-menu-item>
-            <md-button ng-click="::inventory.openModal('list')">New List</md-button>
+            <md-button ng-click="::inventory.openCreateModal('list')">New List</md-button>
           </md-menu-item>
           <md-menu-item>
-            <md-button ng-click="::inventory.openModal('item')">New Item</md-button>
+            <md-button ng-click="::inventory.openCreateModal('item')">New Item</md-button>
           </md-menu-item>
         </md-menu-content>
       </md-menu>
@@ -47,9 +49,44 @@
       </md-list>
     </div>
   </section>
+  <!-- End Left Section -->
 
+  <!-- Right Section -->
   <section class="inventory__section--right" layout="column" flex>
-    <ui-view></ui-view>
+    <!-- Show All Lists in "card" format (Mobile)
+         Replaced by list of items once a list is selected -->
+    <ui-view>
+
+      <!-- Mobile List View -->
+      <md-list layout layout-align="start start" ng-if="$root.$mdMedia('sm')" layout-wrap flex>
+        <md-list-item class="inventory__list" ng-repeat="list in inventory.lists" flex-gt-sm="50" flex-sm="100">
+          <md-card ng-click="inventory.view(list._id)">
+            <md-card-content>
+              <div layout layout-align="start center">
+                <span class="md-title" flex>{{list.title}}</span>
+                <div ng-show="list.subscribers.length > 0">
+                  <md-icon class="md-18">person</md-icon>
+                  <span>{{list.subscribers.length}}</span>
+                </div>
+              </div>
+              <p class="inventory__listDescription">{{list.description}}</p>
+              <span class="inventory__list">{{list.items.length || 0}}</span><span> items</span>
+            </md-card-content>
+
+            <md-card-actions class="md-actions" layout="row" layout-align="start center">
+              <md-button class="md-icon-button" ng-click="inventory.info($index, $event)"><md-icon>info</md-icon></md-button>
+              <md-button class="md-icon-button" ng-click="inventory.remove($index, $event)"><md-icon>delete</md-icon></md-button>
+              <span flex></span>
+              <md-button class="md-primary md-hue-3" ui-sref="main.inventories.items({listId: list._id})">View</md-button>
+            </md-card-actions>
+
+          </md-card>
+        </md-list-item>
+      </md-list>
+      <!-- End Mobile List View -->
+
+    </ui-view>
   </section>
+  <!-- End Right Section -->
 
 </div>

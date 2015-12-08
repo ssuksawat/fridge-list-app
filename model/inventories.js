@@ -27,8 +27,8 @@ Meteor.methods({
       _.each(inventory.items, (itemId) => {
         Items.remove(itemId);
       });
-      //remove the list
-      Inventories.remove(inventoryId);
     }
+    //remove the list
+    Inventories.remove(inventoryId);
   }
 });
